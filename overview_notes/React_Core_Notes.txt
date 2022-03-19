@@ -1,0 +1,95 @@
+
+Proje derleme komutlari
+yarn install
+yarn
+npm install
+bu komutlar olmadan node modules olmaz
+bu olmadan da run edilmez
+
+
+sonra yarn start
+yada npm start
+
+Vs code da klasör üzerine sag tikla,  reveal in file explorer
+büyük bir projeden tek bir klasör secme
+
+klasörü node module olmadan zip yapmaliyiz cok zaman alir
+
+vs code da dosya yada klasöre sag tikla termail ile ac de 
+
+yarn, npm e göre daha hizlidir
+
+
+vs code da default terminal git bash yapma:
+üstte view e tikla
+commend pallette
+arama cubuguna terminal:select yaz
+sonra select default profile
+
+
+vs code da sol altta cark seklindeki ayarlara tikla
+settings
+arama cubuguna cwd yaz
+en üstte terminal ile ilgili olan yere ${fileDirname} yaz
+bu su ise yarar: 
+mesela su an index.js dosyasi icindeyiz
+new terminal dedik
+bu durumda terminal direkt bu dosya icinde baslar
+
+
+package.json projemizin özetidir.
+hangi library ler hangi scriptler var
+icindekiler listesi gibi
+bu dosya olmazsa da calismaz
+eger yoksa npm init ile indirilebilir
+
+package icinde 
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+react app start dedigimizde buradaki start scripti calisir.
+
+projemiz hazir oldugunda ve server a yüklenecegi zaman build ederiz. 
+sebebi sudur: react es6 ve üzeri ile calisir. ama eski browser lar bunu desteklemez.
+bu nedenle build edilerek eski browser lara da uyumlu hale getirilir.
+
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+
+ReactDOM.render(<App />, document.getElementById("root"));
+
+render iki parametre alir. birincisi ne yapacagi
+ikincisi ise nereye yapacagi
+yukaridaki kodlar ile, app icinde bulunan tüm islemler, html de bulunan root divi icine yapilir
+
+
+comentleri renklendirme  better commend
+
+
+component mimarisi
+en üstte index.js (baba)
+altinda app.js (anne tüm componentler bunda birlesir bu da index.js tarafindan cagrilir)
+bunun altinda ise sinirsiz sayida component olabilir ve buna baglidir
+
+
+componentlerin fazla olmasi programin yeniden kullanilabilirligini artirir
+component de bir modüldür
+exportu ve importu vardir
+
+dosyalar kisminda dosyalarin ayni hiyerarsi de olmasinin bir önemi yoktur
+önemli olan import export durumunda hangisinin import edildigidir.
+
+
+
+
+
+
+
