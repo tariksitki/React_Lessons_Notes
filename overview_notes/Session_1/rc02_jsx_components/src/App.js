@@ -1,7 +1,12 @@
 import Footer from "./Footer";
-import Header from "./Header";
 import Msg from "./Msg.jsx";
+// import {Header} from "./Header";
+import Header2, {Header} from "./Header";
 
+// import Msg yerine myMsg da kullanilabilir
+// iki tane ayni isim varsa as ile degisebilir
+
+    /// functional component
 // function App() {
 //   return (
 //     <div>
@@ -19,11 +24,13 @@ function App() {
     <>
       <h1>Hello React</h1>
       <h1>Hello React</h1>
+      <Header/>
+      <Header2/>
       
-      <Header />
+      {/* <Header />
       <Header />
       <Msg />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
@@ -31,6 +38,30 @@ function App() {
 export default App;
 
 // <Foo  yazdigimizda otomatik cikar ve import a gerek kalmaz
+
+
+/// component yazarken, return ün disi js ortamidir. return ün ici ise jsx ortamidir burada jsx kurallari gecerlidir.
+
+// best practice olarak tüm componentler app e baglanir
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
