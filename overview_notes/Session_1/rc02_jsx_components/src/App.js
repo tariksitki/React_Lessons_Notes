@@ -1,7 +1,8 @@
-import Footer from "./Footer";
-import Msg from "./Msg.jsx";
+import Footer from "./Footer.jsx"
 // import {Header} from "./Header";
 import Header2, {Header} from "./Header";
+import Msg, {currentTimeFunc} from "./Msg"
+
 
 // import Msg yerine myMsg da kullanilabilir
 // iki tane ayni isim varsa as ile degisebilir
@@ -31,6 +32,10 @@ function App() {
       <Header />
       <Msg />
       <Footer /> */}
+
+      <Footer/>
+      <Msg />
+      <currentTimeFunc />
     </>
   );
 }
@@ -43,6 +48,7 @@ export default App;
 /// component yazarken, return ün disi js ortamidir. return ün ici ise jsx ortamidir burada jsx kurallari gecerlidir.
 
 // best practice olarak tüm componentler app e baglanir
+
 
 
 

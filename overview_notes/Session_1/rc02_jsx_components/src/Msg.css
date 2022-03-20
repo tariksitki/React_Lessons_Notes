@@ -1,6 +1,24 @@
 .msg-img {
-    width: 50%;
+    width: 100px;
+    height: 100px;
     display: block;
     margin: 1rem auto;
-    color: red;
+    
 }
+    /* Bu sekilde style verirsek hepsi etkilenir  */
+
+/* h1 {
+    color: aqua;
+} */
+        /* specific atama */
+/* div div h1 {
+    color: aqua;
+} */
+
+
+.msg-h1 {
+    color: aqua;
+};
+
+
+

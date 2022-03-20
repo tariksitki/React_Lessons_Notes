@@ -1,36 +1,32 @@
-// import React from 'react'
+  /// class based component de component i import cok önemli
 
-// const Footer = () => {
-//   return (
-//     <div>Footer</div>
-//   )
-// }
+// import React, {Component} from "react";
+  // 2. method:
 
-// export default Footer
+import React from "react";
+import {Component} from "react";
+  // Cok önemli: Component import ederken {} icinde
 
-// rafce 
-// rce 
-
-
-import React, { Component } from 'react'
-
-const pStyle = {
-    padding: "1rem",
-    textAlign: "center",
-    backgroundColor: "black",
-    color: "white",
+const footerStyle = {
+  textAlign : "center",
+  backgroundColor : "blue",
+  color : "white"
 }
+  class Footer extends Component {
+    render () {
+      return (
+        <div>
+          <h1 style={footerStyle}>Footer CopyRight {new Date().getFullYear()} </h1>
+        </div>
+      )
+    }
+  };
 
-export class Footer extends Component {
-  render() {
-    return (
-      <div>
-          <p style={pStyle}>
-          Copyright {new Date().getFullYear()} 
-          </p>
-    </div>
-    )
-  }
-}
+  export default Footer; 
 
-export default Footer
+
+
+
+
+
+
