@@ -88,8 +88,32 @@ dosyalar kisminda dosyalarin ayni hiyerarsi de olmasinin bir önemi yoktur
 önemli olan import export durumunda hangisinin import edildigidir.
 
 
+ Bining;  ger class component de func i arrow func seklinde yazmaz isek bunu classa bine etmemiz gerekir.
 
 
+react da emmet calismasi:
+settings arama cubuguna emmet yaz
+item kismina javascript
+
+value kismina javascriptreact yaziyoruz
+
+component kompozot bir elementtir
+yani icinde html css ve js bulunur
+
+
+return edilecek div ya return satirindan baslayacak yada () kullanacagiz
+
+vs code tamamlamalar icin, uzantilardan react es7
+
+Not: react in import edilmesi sadece index js de yeterlidir. react 17 ile geldi
+
+Cok önemli: Tüm componentler index.js de toplandigi icin mesela h1 e bir style verdigimizde tüm h1 ler etkilenir. 
+cözüm style vermek istedigimiz elemente class vermek yada hiyerarsik yakalama yapmaktir.
+
+ Save:
+settings
+format on save tikli olmali
+ 
 
 
 

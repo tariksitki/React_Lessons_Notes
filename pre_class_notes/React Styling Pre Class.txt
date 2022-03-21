@@ -1,0 +1,117 @@
+What is Sass
+➤ Sass is a CSS pre-processor. Sass files are executed on the server 
+and send CSS to the browser.
+
+➤ If you use the create-react-app in your project, you can easily 
+install and use Sass in your React projects.
+
+➤ Install Sass by running this command in your terminal:
+
+
+
+*  npm install sass
+*  yarn add sass
+
+Create a variable to define the color of the text:
+
+//style.scss
+$myColor: red;
+h1 {
+  color: $myColor;
+}
+
+
+Import the Sass file the same way as you imported a CSS file:
+
+// Class Comp.
+import React from 'react';
+import './style.scss';
+
+class MyHeader extends React.Component {
+  render() {
+    return (
+      <div>
+      <h1>ClarusWay Style!</h1>
+      <p>Add a little style!.</p>
+      </div>
+    );
+   }
+}
+
+export default MyHeader;
+
+
+
+
+
+
+
+Styled Components
+
+
+styled-components is a enhanced CSS solution for styling React component systems.
+
+Installation
+➤ Installing styled-components only takes a single command and you're ready to roll:
+
+npm install styled-components
+yarn add styled-components
+
+
+
+Basic Usage
+import React from 'react';
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
+
+// Class Comp
+class MyComponent extends React.Component {
+  render() {
+    return (
+      <Title> Hello World! </Title>
+    );
+   }
+}
+
+// Functional Comp
+function MyComponent() {
+    return (
+      <Title> Hello World! </Title>
+    );
+}
+
+export default MyComponent
+➤ In this example, Title is a h1 element which is styled with styled-components.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
