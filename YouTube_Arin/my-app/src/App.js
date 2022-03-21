@@ -1,5 +1,6 @@
 
 import Card from "./components/Card";
+import Collapse from "./components/collapse";
 
 const myArray = ["John", "Kennedy", "Bush"];
 
@@ -19,11 +20,30 @@ function App () {
         <button>{10 + 20} </button> */}
 
 
-    <div class="card-group">
+    <Collapse />
+    <div className="card-group">
 
-      <Card number = "1" />
-      <Card number = "2" />
-      <Card number = "3" />
+      <Card 
+      number = "1" 
+      cardText = "Lorem Ipsum 1" 
+      cardTime = "Last 1 Minute Updated"
+      image = "https://picsum.photos/id/1/600/400"
+      />
+
+      <Card 
+      number = "2" 
+      cardText = "Lorem Ipsum 2" 
+      cardTime = "Last 2 Minute Updated"
+      image = "https://picsum.photos/id/10/600/400"
+      />
+
+      <Card 
+        number = "3" 
+        cardText = "Lorem Ipsum 3" 
+        cardTime = "Last 3 Minute Updated"
+        image = "https://picsum.photos/id/1/600/400"
+      />
+
     </div>
   </div>
   )
