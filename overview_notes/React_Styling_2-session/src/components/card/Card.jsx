@@ -1,30 +1,5 @@
 import "./Card.scss"
 
-<<<<<<< HEAD
-import "./Card.scss";
-
-const Card = ({veri}) => {
-  return (
-    <div className="container">
-        {veri.map(eleman => {
-            const {id, countries, capital, img, population} = eleman;
-            return (
-                <div className = "card" key = {id}>
-                    <h1>{countries} </h1>
-                    <img src={img} alt="" />
-                    <h2>{capital} </h2>
-                    <h4>{population} </h4>
-                    <button className = "card-small">Small Button</button>
-                    <button className = "card-large">Large Button</button>
-                </div>
-            )
-        })}
-    </div>
-  )
-}
-export default Card;
-=======
-
 const Card = ({veri}) => {
 //  {veri}= bu yazım verinin eşitinde ne varsa o demek yani App.js deki eşiti {data}. {data} nın {data}= bu yazım datanın eşiti demek yani object=dizinin elemanları
   return (
@@ -53,12 +28,9 @@ const Card = ({veri}) => {
 
 
   )
- })    }
-
-      
+ })    } 
     </div>
   )
 }
-
 export default Card
->>>>>>> 57cdfed57daefb255f3340d4ebb052fd4b875efd
+

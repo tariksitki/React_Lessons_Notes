@@ -1,40 +1,25 @@
-<<<<<<< HEAD
 
+import "./styleSheet.css";
 
-import "./styleSheet.css"
+const StyleSheet = ({secenek}) => {
+    // let isSecenek = secenek == true ? "once" : "sonra";
+    let isSecenek = secenek == true ? "once" : "sonra";
+    return (
+        <>
+            <img className = "logo" src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg" alt="" />
+            
+            <div>
+                <h1 className="header">External Css </h1>
+                <p className="once">External Css After</p>
+                <p className="sonra">External Css Before</p>
 
-const StyleSheet = (props) => {
-  const isSecenek = props.secenek ? "once" : "sonra";
-=======
-import './styleSheet.css';
-const StyleSheet = (props) => {
-const isSecenek= props.secenek ? "once":"sonra"
-  
->>>>>>> 57cdfed57daefb255f3340d4ebb052fd4b875efd
-  return (
-    <div>
-      <img className="logo"
-     src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"
-        alt="clarusway-logo"
-      />
-<<<<<<< HEAD
-      <h1 className = "header"> Regular-style --- STYLESHEET </h1>
-      <h1   >Regular-style --- STYLESHEET</h1>
-    {/* <p className = {props.secenek ? "once" : "sonra"}> Welcome to Clarusway</p> */}
-    <p className = {isSecenek}> Welcome to Clarusway</p>
+                  {/* props kullanimi */}
+                <p className= {secenek == true ? "once" : "sonra"} >External Css with Props</p>
 
-  <p >Welcome to Clarusway</p>
-
-        
-
-
-=======
-      <h1 className="header">Regular-style --- STYLESHEET </h1>
- 
-     <p className={isSecenek }>Welcome to Clarusway</p>
->>>>>>> 57cdfed57daefb255f3340d4ebb052fd4b875efd
-      </div>
-  );
+                <p className = {isSecenek} >External Css with Props</p>
+            </div>
+        </>
+    )
 };
 
 export default StyleSheet;

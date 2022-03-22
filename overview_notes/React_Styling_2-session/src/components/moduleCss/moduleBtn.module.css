@@ -1,6 +1,5 @@
 
 .main {
-<<<<<<< HEAD
     text-align: center;
   }
   
@@ -33,37 +32,4 @@
   .ikinci:hover {
     background-color: #3d4347;
   }
-=======
-  text-align: center;
-}
 
-.birinci {
-  cursor: pointer;
-  background-color: #0069d9;
-  border-radius: 2px;
-  padding: 8px;
-  font-size: 1rem;
-  color: #fff;
-  width: 5rem;
-  border: none;
-  margin: 5px;
-}
-.birinci:hover {
-  background-color: #004084;
-}
-
-.ikinci {
-  cursor: pointer;
-  background-color: #5a6268;
-  border-radius: 2px;
-  padding: 8px;
-  font-size: 1rem;
-  color: #fff;
-  width: 5rem;
-  border: none;
-  margin: 5px;
-}
-.ikinci:hover {
-  background-color: #3d4347;
-}
->>>>>>> 57cdfed57daefb255f3340d4ebb052fd4b875efd

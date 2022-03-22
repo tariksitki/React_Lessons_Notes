@@ -1,9 +1,5 @@
 @import "./variables";
 // &-- ile ortak paranteze alındı sonra içine kaldığı yerden devam edilerek ->  & small ya da &large
-.card{
-
-<<<<<<< HEAD
-@import "./variables";
 
 .card {
     &-{
@@ -25,25 +21,4 @@ button {
     margin-top: 5px;
 }
 
-=======
- &--{
 
- &small{
-  background-color:$darkestGreen;
-  padding:5px;
- }
- &large{
-  background-color:$darkGreen;
-  padding:5px 10px;
-  margin-left: 5px;
- }
- }
-button{
-  border-radius: 5px;
-  color:white;
-  margin-top:5px;
-}
-
-
-}
->>>>>>> 57cdfed57daefb255f3340d4ebb052fd4b875efd

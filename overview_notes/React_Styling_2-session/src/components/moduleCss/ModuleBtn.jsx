@@ -13,18 +13,3 @@ const ModuleBtn = ({btnStyle, btnName}) => {
 // inspect yaparak module css’in oluşturduğu class isimlendirmesini görebilirsiniz bu sayede nasıl unique classlar oluşturduğunu görebilirsiniz
 export default ModuleBtn
 
-
-import styles from "./moduleBtn.module.css";
-
-const ModuleBtn = ({btnStyle, btnName}) => {
-    // console.log(btnStyle);
-    // console.log(btnName);
-  return (
-    <div className={styles.main}>
-        <button className= {styles[btnStyle]}  >{btnName} </button>    
-    </div>
-  )
-}
-
-export default ModuleBtn
-
