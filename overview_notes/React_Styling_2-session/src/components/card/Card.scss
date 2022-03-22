@@ -1,42 +1,41 @@
-@import "../../sass/style";
-// bütün sass stillendirmeleri style.scss de toplandı, bu yüzden burada sadece onu import ettik
 
+// // bütün sass stillendirmeleri style.scss de toplandı
+// // scss yazmasak da olur 
 
+@import "../../sass/variables";
 
-
-// scss yazmasak da olur 
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    
+      .card {
+        max-width: 400px;
+        min-width: 200px;
+        border-radius: 5px;
+        box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.3);
+        width: 30%;
+        padding: 5px;
+        
+        img {
+          width: 50%;
+          // border-radius: 80px;
+          box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.329);
+          margin-top: 10px;
+        }
   
-    .card {
-      max-width: 400px;
-      min-width: 200px;
-      border-radius: 5px;
-      box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.3);
-      width: 30%;
-      padding: 5px;
-      
-      img {
-        width: 50%;
-        // border-radius: 80px;
-        box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.329);
-        margin-top: 10px;
-      }
-
-      h1 {
-        color: $acikkirmizi;
-      }
-      h2 {
-          color: $kirmizi;
-      }
-      h4 {
-          color: $koyukirmizi;
-      }
-    }};
+        h1 {
+          color: $acikkirmizi;
+        }
+        h2 {
+           color: $kirmizi;
+        }
+        h4 {
+            color: $koyukirmizi;
+        }
+      }};

@@ -1,36 +1,33 @@
-import "./Card.scss"
+
+
+// //  {veri}= bu yazım verinin eşitinde ne varsa o demek yani App.js deki eşiti {data}. {data} nın {data}= bu yazım datanın eşiti demek yani object=dizinin elemanları
+
+
+import "./Card.scss";
+import "../../sass/style.scss";
 
 const Card = ({veri}) => {
-//  {veri}= bu yazım verinin eşitinde ne varsa o demek yani App.js deki eşiti {data}. {data} nın {data}= bu yazım datanın eşiti demek yani object=dizinin elemanları
+  console.log(veri);
   return (
     <div className="container">
+        {veri.map(item => {
+          const {id, img, countries, capital, population} = item;
+          console.log(id);
+          return (
+            //  react üstte unique bir veri istiyor, data nın içinde gezip verileri ayrıştırırken emin olabilmek için
+            <div className="card" key = {id}>
+              <h1> {countries} </h1>
+              <img src= {img} alt="" />
+              <h2>{capital} </h2>
+              <h4>{population} </h4>
 
- {/* 
- map yapmadan alttaki gibi yapsaydık her card için aynı satırları yazmak zorunda kalırdık
-<h1>{dataa[0].countries}</h1>
-<img src={dataa[0].img}/>
- <h2>{dataa[0].capital}</h2> */}
- { veri.map((eleman)=>{
-  //destructuring
-  const {id, countries, capital, img,population} = eleman
-  return(
-
-<div className="card" key={id}    >
-{/* react üstte unique bir veri istiyor, data nın içinde gezip verileri ayrıştırırken emin olabilmek için */}
- <h1>{ countries }</h1>
-      <img src={img }/>
-<h2> {capital}</h2>
-<h4>{population}</h4>
-  
-  <button className="card--small">SMALL</button>
-  <button className="card--large">LARGE</button>
-      </div>
-
-
+              <button className="card--small" >Small</button>
+              <button className="card--large" >Large</button>
+          </div>
+          )
+        }) }
+    </div>  
   )
- })    } 
-    </div>
-  )
-}
-export default Card
+};
 
+export default Card;

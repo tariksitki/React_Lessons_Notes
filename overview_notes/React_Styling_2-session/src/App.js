@@ -12,6 +12,7 @@ const App = () => {
       <Inline colorr = "yellow" textColor = "green" />
       <StyleSheet secenek = {true} />
       <Card veri = {data} />
+
       <ModuleBtn btnStyle = "birinci" btnName = "Kaydet" />
       <ModuleBtn btnStyle = "ikinci" btnName = "Sil" />
     </>

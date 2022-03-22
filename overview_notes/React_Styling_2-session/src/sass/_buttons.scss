@@ -1,24 +1,40 @@
+
+// // &-- ile ortak paranteze alındı sonra içine kaldığı yerden devam edilerek ->  & small ya da &large
+
 @import "./variables";
-// &-- ile ortak paranteze alındı sonra içine kaldığı yerden devam edilerek ->  & small ya da &large
 
 .card {
-    &-{
+    &-- {
         &small {
-            background-color: $darkestGreen;
-            padding: 5px;
+            background-color: $acikkirmizi;
+            border: none;
+            color: white;
+            padding: 3px;
+            border-radius: 4px;
         }
+
+        &small:hover {
+            color: $acikkirmizi;
+            background-color: white;
+            cursor: pointer;
+        }
+
         &large {
-            background-color: $darkGreen;
-            padding: 5px;
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 3px;
             margin-left: 5px;
+            border-radius: 5px;
+        }
+
+        &large:hover {
+            background-color: white;
+            color: blue;
+            cursor: pointer;
         }
     }
-}
+};
 
-button {
-    border-radius: 5px;
-    color: white;
-    margin-top: 5px;
-}
 
 
