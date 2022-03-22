@@ -7,12 +7,10 @@ import "./Card.scss";
 import "../../sass/style.scss";
 
 const Card = ({veri}) => {
-  console.log(veri);
   return (
     <div className="container">
         {veri.map(item => {
           const {id, img, countries, capital, population} = item;
-          console.log(id);
           return (
             //  react üstte unique bir veri istiyor, data nın içinde gezip verileri ayrıştırırken emin olabilmek için
             <div className="card" key = {id}>

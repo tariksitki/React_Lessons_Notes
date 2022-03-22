@@ -13,8 +13,8 @@ const App = () => {
       <StyleSheet secenek = {true} />
       <Card veri = {data} />
 
-      <ModuleBtn btnStyle = "birinci" btnName = "Kaydet" />
-      <ModuleBtn btnStyle = "ikinci" btnName = "Sil" />
+      <ModuleBtn btnStyle = "birinci" btnName = "ModuleBtn1"/>
+      <ModuleBtn btnStyle = "ikinci" btnName = "ModuleBtn2"/>
     </>
   );
 };
@@ -22,4 +22,4 @@ const App = () => {
 export default App;
 
 
-// module.css bize stilleri bir obje gibi dönüyor, o yüzden stillere dot notation / bracket notation ile ulaşıyoruz
+// module.css bize stilleri bir object gibi dönüyor, o yüzden stillere dot notation / bracket notation ile ulaşıyoruz
