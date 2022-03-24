@@ -90,7 +90,8 @@
 //         {/* bind birinci method */}
 //         {/* <button onClick={this.myEvent.bind(this)}>React Button </button> */}
 
-//         {/* onclick icinde event handler a deger gönderme bind iki deger alir. eger this yazmaz isek 33 ü this olarak algilar*/}
+//         {/* onclick icinde event handler a deger gönderme bind iki deger alir. eger this yazmaz isek 33 ü this olarak algilar 
+// iki deger aldigi icin ayni an da hem bind edip hem de deger gönderebiliriz  */}
 //         <button onClick={this.myEvent.bind(this, 33)}>React Button </button>
 //       </div>
 //     );
@@ -104,19 +105,79 @@
         // cagrilirken this kullanmiyoruz. bu nedenle func componentlarda 
         // this kullanimi tamamen ortadan kalkiyor
 
-    export default function Pre_Class () {
-        const buttonHandler = function () {
-            console.log("Hello World");
+    // export default function Pre_Class () {
+    //     const buttonHandler = function () {
+    //         console.log("Hello World");
+    //     }
+
+    //     return (
+    //         <div>   
+    //             <button onClick={buttonHandler}>
+    //                 Func Component
+    //             </button>
+    //         </div>
+    //     )
+    // } 
+
+
+
+
+
+
+
+
+    // import React, { Component } from 'react'
+    
+    // export default class Pre_class extends Component {
+
+    //     constructor(props) {
+    //       super(props)
+    //         // baslangicta this kullandigimiz icin state icinde this e gerek yok
+    //       this.state = {
+    //          message : "Hello"
+    //       }
+    //     }
+
+    //     eventHandler () {
+    //         this.setState({
+    //             message : "Good Bye"
+    //         })
+    //     }
+
+    //   render() {
+    //     return (
+    //       <div>
+    //           <div>{this.state.message}</div>
+    //           <button onClick={this.eventHandler.bind(this)}> Button </button>
+    //       </div>
+    //     )
+    //   }
+    // }
+
+
+
+
+
+            /// class component da eventhandler sadece console 
+            // da bir yazi yazdiracak ise bu durumda bind islemine 
+            // gerek yok. 
+
+    import React, { Component } from 'react'
+    
+    export default class Pre_class extends Component {
+        eventHandler () {
+            console.log("clicked button");
         }
 
+      render() {
         return (
-            <div>   
-                <button onClick={buttonHandler}>
-                    Func Component
-                </button>
-            </div>
+          <div>
+              <button onClick={this.eventHandler} >Click</button>
+          </div>
         )
-    } 
-
+      }
+    }
+    
+    
 
     
