@@ -1,0 +1,114 @@
+Html events den farklari:
+1: camelcase
+2: html de default davranisi engellemek return false
+react da ise prevent default
+
+Bubbling icten disa gitmektir balonlama yayilma. yani span a tikladigimizda, kapsayici li elementi de etkilenir
+
+Capturing ise distan ice yakalama. ana genel den bireysel e gitme
+
+
+
+offsetx ve offsety element ici konum
+pagex ve pagey de sayfa ici konum 
+
+
+stateler componentlerin hafizalaridir
+verileri orada tutariz
+
+statelerin degiskenlerden farki sudur:
+degisikliklerin kullaniciya sunulmasi gerekir. bu nedenle stateler her degisidiginde sayfayi render ederler.
+
+
+Global state ve local state vardir:
+global state, tüm applicationumuuz ilgilendiren statelerdir. bunlar app.jsx de tanimlanir. sadece bir component i ilgilendiren state ise o zaman sadece o component da tanimlanir. (local state)
+
+eger iki tane chil component i ilgilendiren bir state ise o zaman bunlarin ebeveynin de tanimlanir ve props olarak child lara state gönderilir.
+
+sadece bir component i ilgilendiren state, app de tanimlanmaz
+
+
+react in en büyük özelligi bu. bir degisiklik oldugunda render methodu ile component render edilir ve dom a direkt müdahale etmeden user a sunulur.
+
+
+state ler bir degiskendir. object de olabilir string yada array de olabilir
+
+
+
+	PROPS AND STATE FARKI:
+
+Propslar component a iletilir
+State ler ise component icinde yönetilir
+
+
+Props lar function parametreleridir
+State ler ise func body si icinde declare edilen degiskenlerdir
+
+
+Props are immutable
+state can be changed
+
+
+Props lar; func component da props olarak kullanilir
+state ler ise useState Hook olarak
+
+
+Class da; this.props
+		this.state
+
+
+Class larda state default olarak bulunan in build bir yapidir
+Func lar icin ise useState hook u olusturulmustur bunu import ederiz.
+Bu nedenle func lara stateless 
+class lara ise stateful denir
+
+
+useState bize component imizi stateful yapma imkani verir
+ve component imizi daha flexible bir hale getirir
+ve biz onu func comp icinde call ederiz
+
+
+useState i i tanimlama satiri
+burada bir destructuring olayi vardir
+= sag tarafinda useState vardir sol tarafinda ise state ve setState i tanimlariz. () icinde initial deger
+
+
+
+UseState Hooks her renderda en son state den beslenerek durumunu korur
+
+UseState bir tuple pair return eder. 
+birincisi current state value
+ikincisi ise bu state i update etmemize izin veren function
+yani basta yazdigimiz state ve setState
+
+
+useState icine sadece tek bir edegr girilebilir. initial deger
+bu deger sadece ilk render da kullanilir
+
+
+unlike this.state, the state doesn't have to be an object, although it can be if you want.
+
+
+Bir func iceriisnde istedigimiz kadar hooks u muz olabilir.
+böylece her biri kendi icinde updater func lari olan birden cok state e sahip olmus oluruz.
+
+
+
+useState arka planda bir array return eder. bu nedenle biz tanimlama esnasinda bunun icindeki iki elemani destructure ederiz. 
+array oldugu icin isimler önemli degildir. illa ki state ve setState demek zorunda degiliz.
+ama object destructure da isimler önemlidir.
+
+
+hangi component icindeki state update olduysa, sadece o component render olur
+
+
+
+
+
+
+
+
+
+
+
+

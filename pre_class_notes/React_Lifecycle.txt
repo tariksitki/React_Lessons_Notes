@@ -1,0 +1,265 @@
+The three phases are: Mounting, Updating, and Unmounting.
+
+Mounting
+➤ Mounting means putting elements into the DOM.
+
+➤ React has four built-in methods that gets called, in this order, when mounting a component:
+
+● constructor()
+● render()
+● componentDidMount()
+
+ The render() method is required and will always be called, the others are optional and will be called if you define them.
+
+Constructor() yöntemi, bileşen başlatıldığında her şeyden önce çağrılır ve başlangıç ​​durumunu ve diğer başlangıç ​​değerlerini ayarlamak için doğal yerdir.
+
+➤ The constructor() method is called with the props, as arguments, and you should always start by calling the super(props) before anything else, this will initiate the parent's constructor method and allows the component to inherit methods from its parent (React.Component).
+
+class MyComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {course: "Data Science"};
+  }
+  render() {
+    return (
+      <h1>My Favorite IT Course is {this.state.course}</h1>
+    );
+  }
+}
+
+ReactDOM.render(<MyComp/>, document.getElementById('root'));
+- render
+➤ The render() method is required, and is the method that actual outputs HTML to the DOM.
+
+⚜️ Tips:
+A simple component with a simple render() method.
+class MyComp extends React.Component {
+  render() {
+    return (
+      <h1>This is the content of the MyComp component</h1>
+    );
+  }
+}
+
+ReactDOM.render(<MyComp />, document.getElementById('root'));
+- componentDidMount
+➤The componentDidMount() method is called after the component is rendered.
+
+➤ This is where you run statements that requires that the component is already placed in the DOM.
+
+
+class MyComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {course: "Data Science"};
+  }
+  render() {
+    return (
+      <h1>My Favorite IT Course is {this.state.course}</h1>
+    );
+  }
+}
+
+ReactDOM.render(<MyComp/>, document.getElementById('root'));
+
+
+The render() method is required, and is the method that actual outputs HTML to the DOM.
+
+
+
+
+ componentDidMount
+
+
+➤The componentDidMount() method is called after the component is rendered.
+
+➤ This is where you run statements that requires that the component is already placed in the DOM.
+
+
+
+class MyComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { course: "Data Science" };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ course: "Full-Stack" });
+    }, 1000);
+  }
+  render() {
+    return <h1>My Favorite Course is {this.state.course}</h1>;
+  }
+}
+
+ReactDOM.render(<MyComp />, document.getElementById("root"));
+
+
+
+
+
+
+Updating
+
+
+➤ A component is updated whenever there is a change in the component's state or props.
+
+➤ React has built-in methods that gets called, in this order, when a component is updated.
+
+● render()
+● componentDidUpdate()
+
+⚜️ Tips:
+The render() method is required and will always be called, the others are optional and will be called if you define them.
+
+
+
+- render
+➤ The render() method is of course called when a component gets updated, it has to re-render the HTML to the DOM, with the new changes.
+
+➤ The example below has a button that changes the favorite course to AWS & DevOps.
+
+
+class MyComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { favoritecourse: "Data Science" };
+  }
+  changeCourse = () => {
+    this.setState({ favoritecourse: "AWS & DevOps" });
+  };
+  render() {
+    return (
+      <div>
+        <h1>My Favorite Course is {this.state.favoritecourse}</h1>
+        <button type="button" onClick={this.changeCourse}>
+          Change Course
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<MyComp />, document.getElementById("root"));
+
+
+
+
+- componentDidUpdate
+
+➤ The componentDidUpdate method is called after the component is updated in the DOM.
+
+
+
+
+class Mycomp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { favoritecourse: "Data Science" };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ favoritecourse: "Full-Stack" });
+    }, 1000);
+  }
+  componentDidUpdate() {
+    document.getElementById("mydiv").innerHTML =
+      "The updated favorite is " + this.state.favoritecourse;
+  }
+  render() {
+    return (
+      <div>
+        <h1>My Favorite Course is {this.state.favoritecourse}</h1>
+        <div id="mydiv"></div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Mycomp />, document.getElementById("root"));
+
+
+
+
+
+
+
+
+Unmounting
+
+
+➤ The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as React likes to call it.
+
+➤ React has only one built-in method that gets called when a component is unmounted:
+
+- componentWillUnmount
+The componentWillUnmount method is called when the component is about to be removed from the DOM.
+
+
+
+class MyComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: true };
+  }
+  delHeader = () => {
+    this.setState({ show: false });
+  };
+  render() {
+    let myheader;
+    if (this.state.show) {
+      myheader = <Child />;
+    }
+    return (
+      <div>
+        {myheader}
+        <button type="button" onClick={this.delHeader}>
+          Delete Header
+        </button>
+      </div>
+    );
+  }
+}
+
+class Child extends React.Component {
+  componentWillUnmount() {
+    alert("The component named Header is about to be unmounted.");
+  }
+  render() {
+    return <h1>The Header!</h1>;
+  }
+}
+
+ReactDOM.render(<MyComp />, document.getElementById("root"));
+
+
+The componentWillUnmount method is called when the component is about to be removed from the DOM.
+
+
+
+
+Mount: componentDidMount
+Update: componentDidUpdate
+Remove: componentWillUnmount
+
+Isimlerinden de anlasilacagi üzere, mount ve update de islem gerceklestikten sonra.
+Remove da ise silinmek üzere iken calisirlar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

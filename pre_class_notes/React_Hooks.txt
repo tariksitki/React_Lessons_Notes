@@ -1,0 +1,344 @@
+Hooks:
+
+
+Not: componentlar bir func dir. ve html elementleri return ederler.
+
+➤ Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes.
+
+➤ Hooks are 100% backwards-compatible. Hooks don’t contain any breaking changes.
+
+import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times< /p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+} 
+
+export default Example; 
+
+Bu kodda useState bir Kancadır. Eski ve yeni durumu birleştirmemesi dışında, bir sınıftaki this.setState'e benzer.
+
+
+
+Defining state with useState()  in class 
+
+
+import React from "react";
+
+class ClassicComponent extends React.component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "Walter White",
+    };
+  }
+}
+
+
+	**** func componentlar da hook kullanmak icin useState i react dan import etmemiz gerekir
+
+
+➤ With Hooks without class components;
+
+import { useState } from 'react';
+
+function WithHoook() {
+  const [name, setName] = useState('Walter White'); 
+}
+
+
+React Hooks'un piyasaya sürülmesinden önce, bir sınıf bileşenini kullanmamız gerekeceğinden, bu örnek daha fazla kod satırı kullanırdı.
+
+
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+
+
+
+
+			Reading State
+
+
+
+➤ When we want to display the current count in a class, we read this.state.count:
+
+<p>You clicked {this.state.count} times</p>
+➤ In a function, we can use count directly:
+
+<p>You clicked {count} times</p>
+
+
+
+
+
+Updating State
+➤ In a class, we need to call this.setState() to update the count state:
+
+<button onClick={() => this.setState({ count: this.state.count + 1 })}>    
+     Click me  
+</button>
+➤ In a function, we already have setCount and count as variables so we don’t need this:
+
+<button onClick={() => setCount(count + 1)}>Click me</button>
+
+
+
+
+
+
+import React, { useState } from "react";
+
+function NameComponent() {
+  const [input, setInput] = useState("");
+  const [name, setName] = useState("React Learner!");
+
+  const handleInput = (event) => {
+    setValue(event.target.value);
+  };
+
+  const updateName = () => {
+    setName(input);
+    setInput("");
+  };
+
+  return (
+    <div>
+      <p>Hello, {name}! Welcome to Clarusway</p>
+      <div>
+        <input type="text" value={input} onChange={handleInput} />
+        <button onClick={updateName}>Save</button>
+      </div>
+    </div>
+  );
+}
+
+export default NameComponent;
+
+
+
+
+
+
+
+			Effect Hook
+
+
+
+
+
+➤ Effect Hook runs both after the first render and after every update. Instead of thinking in terms of mounting and updating, you might find it easier to think that effects happen after render. React guarantees the DOM has been updated by the time it runs the effects.
+
+
+
+import React from "react";
+
+class WithoutEffectHook extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+  componentDidMount() {
+    console.log(`You clicked ${this.state.count} times`);
+  }
+  componentDidUpdate() {
+    console.log(`You clicked ${this.state.count} times`);
+  }
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+export default WithoutEffectHook;
+
+
+
+** Bu örnek class lar icindi. yani class componentlarda useeffect kullanmadan kendi icinde olarak lifecycle methodlarini kullanabiliyoruz.
+++ ama funclarda kullanmak icin useeffect kullanmak gerekir.
+
+
+React sınıfı yaşam döngüsü yöntemlerine aşinaysanız useEffect Hook'u componentDidMount, componentDidUpdate ve componentWillUnmount birleşimi olarak düşünebilirsiniz.
+yani ücünü de kendi icinde calistirir.
+
+
+
+import React, { useState, useEffect } from "react";
+
+function EffectHook() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    console.log(`You clicked ${count} times`);
+  });
+
+  return (
+    <div>
+      <h1>EffectHook</h1>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+export default EffectHook;
+
+
+
+
+
+
+
+➤ What does useEffect do? By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we'll refer to it as our "effect"), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API.
+
+
+
+
+➤ Why is useEffect called inside a component? Placing useEffect inside the component lets us access the count state variable (or any props) right from the effect. We don't need a special API to read it - it's already in the function scope. Hooks embrace JavaScript closures and avoid introducing React-specific APIs where JavaScript already provides a solution.
+
+
+
+➤ Does useEffect run after every render? Yes! By default, it runs both after the first render and after every update. (We will later talk about how to customize this.) Instead of thinking in terms of "mounting" and "updating", you might find it easier to think that effects happen "after render". React guarantees the DOM has been updated by the time it runs the effects.
+
+
+
+⚜️ Tips:
+Unlike componentDidMount or componentDidUpdate, effects scheduled with useEffect don't block the browser from updating the screen. This makes your app feel more responsive.
+
+
+
+
+
+UseEffect Example
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const App = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios("https://randomuser.me/api/?results=10")
+      .then((response) =>
+        response.data.results.map((user) => ({
+          name: `${user.name.first} ${user.name.last}`,
+          username: `${user.login.username}`,
+          email: `${user.email}`,
+          image: `${user.picture.thumbnail}`,
+        }))
+      )
+      .then((data) => {
+        setUsers(data);
+      });
+  }, []);
+
+  return (
+    <div className="users">
+      {users.map((user) => (
+        <div key={user.username} className="users__user">
+          <img src={user.image} className="users__avatar" alt="#" />
+          <div className="users__meta">
+            <h1>{user.name}</h1>
+            <p>{user.email}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+export default App;
+
+
+
+
+With useEffect, you can handle lifecycle events directly inside function components.
+
+
+
+
+Rules of Hooks
+➤ With Hooks you can use state and other React features without writing a class component. In other words, Hooks are functions that let you “hook into” React state and lifecycle features from function components. (They do not work inside class components.)
+
+
+
+
+
+Only Call Hooks at the Top Level
+
+➤ Don’t call Hooks inside loops, conditions, or nested functions. Instead, always use Hooks at the top level of your React function. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That’s what allows React to correctly preserve the state of Hooks between multiple useState and useEffect calls.
+
+
+
+
+
+
+Only Call Hooks from React Functions
+
+➤ Don’t call Hooks from regular JavaScript functions. Instead, you can:
+✅ Call Hooks from React function components.
+✅ Call Hooks from custom Hooks. By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.
+
+
+
+
+
+If you define state variable as name, you must call it as setName.(False)
+cagirma this.state olarak degistirme ise set ile 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

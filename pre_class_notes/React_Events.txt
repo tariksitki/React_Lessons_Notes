@@ -1,0 +1,176 @@
+Events are signals from the browser that something has happened. For instance,
+
+-When user moves the mouse over an HTML element, mouseover event occurs,
+
+- When user clicks on an HTML element, click event occurs
+
+
+➤ In React apps, events are written in the camelCase format, which means the onclick event will be written as onClick in a React app.
+➤ A good practice is to put the event handler as a method in the component class.
+➤ With JSX you pass a function as the event handler, rather than a string.
+➤ Another difference is that you cannot return false to prevent default behavior in React. You must call preventDefault explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+
+<a href="#" onclick="console.log('The link was clicked.'); return false">
+  Click me
+</a>
+
+
+But in React:
+
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
+  return (
+    <a href="#" onClick={handleClick}>
+      Click me
+    </a>
+  );
+}
+
+
+
+
+		Adding Event:
+
+When using React, you generally don’t need to call addEventListener to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+
+
+ When you define a component using an ES6 class, a common pattern is for an event handler to be a method on the class. For example,
+
+
+
+import React, { Component } from 'react';
+
+export default class AddEventsClass extends Component {
+  shoot() {
+    alert('Great Shoot!');
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.shoot}>Take the shot!</button>
+      </div>
+    );
+  }
+}
+
+
+
+
+
+And example for the functional component,
+
+import React from 'react';
+
+const AddEvents = () => {
+  function shoot() {
+    alert('Great Shot!');
+  }
+
+  return (
+    <div>
+      <button onClick={shoot}>Take the shot</button>
+    </div>
+  );
+};
+
+
+
+
+				Some Event Types:
+
+
+Form Events:
+
+onChange onReset onSubmit
+
+
+Clipboard Events: (Not panosu)
+onCopy onCut onPaste
+
+
+Keyboard Events:
+onKeyDown onKeyPress onKeyUp
+
+
+Focus Events
+onFocus onBlur
+
+
+
+Kontrollü bileşenleri kullanmanın faydaları
+
+
+en büyük avantajı tek bir şeye indirgenir:
+
+Anında doğrulama kontrolleri.
+
+Kontrolsüz bir bileşen kullanırken, yalnızca formu gönderdiğinizde girişin değerine erişebilirsiniz. Ancak, kontrollü bir bileşen kullanırken değere her zaman erişebiliriz. Bu nedenle, her tuş vuruşunda doğrulama kontrolleri uygulamak kolaydır.
+
+Örneğin, giriş değerinin en az 8 karakter uzunluğunda olması gerektiğine dair bir doğrulama kontrolü ekleyebilirim. inputTextDeğerin uzunluğuna bağlı olarak koşullu olarak bir metin oluşturabilirim .
+
+		Örnek:
+
+{inputText.length >= 8 ? (
+  <div>OK</div>
+) : (
+  <div>Must be at least 8 characters</div>
+)}
+
+<button onClick={handleSubmit} disabled={inputText.length < 8}>
+  Submit
+</button>
+
+
+
+
+
+export default function Pre_Class () {
+        const buttonHandler = function () {
+            console.log();
+        }
+
+        return (
+            <div>   
+                <button onClick={buttonHandler}>
+                    Func Component
+                </button>
+            </div>
+        )
+    }
+
+
+
+
+
+In real life examples you need to pass id to an event handler.
+
+<button onClick={(e) => this.delete(id, e)}>Delete</button>
+<button onClick={this.delete.bind(this, id)}>Delete</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
