@@ -1,0 +1,89 @@
+Three Phases of React Components:
+1: Mounting (dogum)
+	1: constructor(bunu olusturmak zorunda degiliz)
+	2: render (yazdigimiz kodlarin sunulmasi)
+	3: componentDidMount
+
+
+2: Updating
+	** bir component 3 nedenle update olur
+	a: New props gelmesi
+	b: setState calismasi
+	c: forceUpdate ile zorla update edilmesi
+
+	Updating in 2 asamasi vardir:
+	1: render
+	2: ComponentDidUpdate
+
+
+3: UnMounting(ölüm)
+	1: ComponentWillUnmount
+	(bu safhada render olmaz)
+
+
+	
+constructor da super(props) calistirilmak zorundadir. aksi takdirde this.props undefined olacaktir
+
+** Tipik olarak bir constructor 2 nedenle kurulur:
+1: this.state e bir object assign ederek local state olusturmak
+2: bir instance icin event handler methodlarini binding yapmak
+
+
+
+componentDidMount is invoked immediately after a componen is mounted(inserted into the tree)
+This method is a good place to set up any subscriptions. If You do that, dont forget to unsubscribe in componentwillUnmount.
+You may call setState immedately in componentDidMount
+It will trigger an extra rendering, but it will happen before the browser updates the screen
+Bu sunu garanti eder. render 2 kez cagrilacak ve user intermediate state i görmeyecek
+Bunu dikkatli kullanin cünkü bu performans sorununa sebep olur.
+componentDidMount, bizim componentimiz render edildikten sonra ilk calisacak func dir.
+bunun icinde bizim talimatlarimiz bulunur
+
+Son güncellermeler ile state imizi disarida da olusturabiliyoruz. bu nedenle constructor zorunlu degil.
+
+
+
+											Update asamalari: (bebek altina yapti bu bir gelisme. bezinin degistirilmesi lazim)
+
+
+props changed									state changed
+	
+getDerivedStateFromProps						shouldComponentUpdate
+											render
+											getSnapshotbeforeUpdate
+											componentDidUpdate
+
+
+									
+
+											ComponentWillUnmount:
+Bu method component unmounted edilmeden önce(Dikkat digerleri yapildiktan sonra burada 
+ölmeden önce) yada destroyed edilmeden önce cagrilir
+Bu asamada component imizi modify edemeyiz
+Bu asamada component re render edilmez. Bu nedenle bu asamada setState calistirilmaz
+Yaygin cleanup aktiviteleri:
+clearing timers
+cancelling api calls
+clearing any caches in storage
+
+
+
+
+
+
+**** Bu asamalarin hepsi functional yapilarda da var. ancak orada useEffect olarak gecer
+
+
+
+*** Bu yapi async calisir ancak geri planda oldugu icin biz await kullanmaya gerek duymyiz
+
+
+
+
+
+
+
+
+
+
+

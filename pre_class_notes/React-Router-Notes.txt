@@ -1,0 +1,347 @@
+yarn add react-router-dom
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+Everything that gets rendered will need to go inside the element, so wrap your App in those first.
+
+// index.js
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>, 
+    document.getElementById('root')
+)
+
+
+
+Next, in our App component, add the Routes element (open and closing tags). These ensure that only one component is rendered at a time. If we don't use this, we can default to the Error component, which we're going to write later.
+
+// App.js
+function App() {
+    return (
+        <main>
+            <Routes>
+
+            </Routes>
+        </main>
+    )
+}
+
+
+
+
+
+
+
+To tell the tags which component to load, simply add a path attribute and the name of the component you want to load with component attribute.
+
+<Route path='/' element={<Home/>} />
+function App() {
+    return (
+        <main>
+            <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/about" element={<About/>} />
+                <Route path="/contactus" element={<ContactUs/>} />
+                <Route path="*" element={<Error/>} />
+            </Routes>
+        </main>
+    )
+}
+
+
+
+
+
+
+
+
+Now import the components into the app. You may wish to have them in a separate "components" folder to keep code clean and readable.
+
+import Home from './components/Home';
+import About from './components/About';
+import ContactUs from "./components/ContactUs";
+import Error from "./components/Error";
+
+
+
+
+
+
+
+
+
+Onto that error message I mentioned earlier, which loads if a user types an incorrect URL. This is just like a normal <Route> tag, but with path="*". The Error component contains Oops! Page not found! Don't forget to import it into the app.
+
+
+
+
+
+
+
+
+
+
+Nested Routes
+➤ Routes can be nested inside one another, and their paths will nest too.
+
+function App() {
+    return (
+        <main>
+            <Routes>
+                <Route path="/about" element={<About/>} />
+                     <Route path=":userId" element={<User />} />
+                     <Route path="me" element={<Me />} />
+                </Route>
+            </Routes>
+        </main>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+➤ The parent route (<About>) is responsible for making sure the matching child route is rendered with <Outlet>. Here's the full example:.
+
+import { Routes, Route, Outlet } from "react-router-dom";
+
+function App() {
+    return (
+        <main>
+            <Routes>
+                <Route path="/about" element={<About/>} />
+                     <Route path=":userId" element={<User />} />
+                     <Route path="me" element={<AboutMe />} />
+                </Route>
+            </Routes>
+        </main>
+    )
+}
+
+function About() {
+  return (
+    <div>
+      <h1>About</h1>
+      <Outlet />
+    </div>
+  );
+}
+
+function User() {
+  let { userId } = useParams();
+  return <h1>User: {userId}</h1>;
+}
+
+function AboutMe() {
+  return <h1>About Me</h1>;
+}
+
+
+
+
+
+
+
+
+
+
+Router Hooks
+There are several hooks that we can use in react-router-dom.
+
+⎷ useLocation
+⎷ useNavigate
+⎷ useParams
+
+
+
+
+
+
+
+
+
+➤ useLocation
+This hook returns the current location object. This can be useful if you'd like to perform some side effects whenever the current location changes.
+
+import * as React from 'react';
+import { useLocation } from 'react-router-dom';
+
+function App() {
+  let location = useLocation();
+
+  React.useEffect(() => {
+    go('send', 'pageview');
+  }, [location]);
+
+  return (
+    // ...
+  );
+}
+
+
+
+
+
+
+
+
+
+➤ useNavigate Use Link to let the user change the URL or useNavigate to do it yourself (like after form submissions):
+
+import { Link } from "react-router-dom";
+
+function Home() {
+  return (
+    <div>
+      <h1>Home</h1>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+      </nav>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+The useNavigate hook returns a function that lets you navigate programmatically, for example after a form is submitted.
+
+import { useNavigate } from "react-router-dom";
+
+function SignupForm() {
+  let navigate = useNavigate();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await submitForm(event.target);
+    navigate("/success", { replace: true });
+  }
+
+  return <form onSubmit={handleSubmit}>{/* ... */}</form>;
+}
+
+
+
+
+
+
+
+
+
+
+The navigate function has two signatures:
+
+Either pass a `to` value (same type as ``) with an optional second `{ replace, state }` arg or
+Pass the delta you want to go in the history stack. For example, `navigate(-1)` is equivalent to hitting the back button.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+➤ useParams
+The useParams hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>. Child routes inherit all params from their parent routes.
+
+import * as React from 'react';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+
+function ProfilePage() {
+  // Get the userId param from the URL.
+  let { userId } = useParams();
+  return <h1>UserId {userId}</h1>;
+  // ...
+}
+
+function App() {
+  return (
+  <BrowserRouter>
+    <Routes>
+      <Route path="users">
+        <Route path=":userId" element={<ProfilePage />} />
+        <Route path="me" element={...} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

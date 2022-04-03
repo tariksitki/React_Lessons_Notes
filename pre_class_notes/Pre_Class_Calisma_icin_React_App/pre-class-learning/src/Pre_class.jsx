@@ -162,21 +162,21 @@
             // da bir yazi yazdiracak ise bu durumda bind islemine 
             // gerek yok. 
 
-    import React, { Component } from 'react'
+    // import React, { Component } from 'react'
     
-    export default class Pre_class extends Component {
-        eventHandler () {
-            console.log("clicked button");
-        }
+    // export default class Pre_class extends Component {
+    //     eventHandler () {
+    //         console.log("clicked button");
+    //     }
 
-      render() {
-        return (
-          <div>
-              <button onClick={this.eventHandler} >Click</button>
-          </div>
-        )
-      }
-    }
+    //   render() {
+    //     return (
+    //       <div>
+    //           <button onClick={this.eventHandler} >Click</button>
+    //       </div>
+    //     )
+    //   }
+    // }
     
     
 
