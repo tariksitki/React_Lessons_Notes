@@ -1,0 +1,105 @@
+router yüklü olarak gelmez
+install edilir
+
+react router bir library dir ve disaridan yüklenir
+
+React Router is the defacto React routing library and it is one of the most popular projects built on top of React
+
+the browser should change the url when you navigate to a different screen
+
+
+Komutlar:
+
+npm install react-router-dom
+yarn add            "
+
+
+
+html de birden fazla sayfa olusturulur gelen istege göre kullanici o sayfaya yönlendirilir.
+react da ise tek bi sayfa var
+avantaji: tek bir sayfa oldugu icin kullanici her seferinde backend e istek atmaz. bu nedenle daha hizli
+
+dezavantaj:  eskiden google seo anlaminda, react ile olusturulan sayfalari üst sayfalarda cikarnakta zorlaniyordu ama simdi bu durum degisti
+
+
+
+BrowserRouter
+	Router: yönlendirme islemini bu yapar
+		Route components are responsible for showing or hiding the components they 		contain
+		
+
+
+
+Link: html deki a tag i ile aynidir
+
+
+
+BrowserRouter bir diger kullanimi
+import {BrowserRouter as Router} from ..........
+bu sekilde import ettikten sonra tüm componentleri Router ile sarmalliyoruz
+
+
+
+Router in altinda da Routes tagi kullanilir.
+Kullanimi: Bir an da sadece tek bir component in render edilmesini saglar
+
+
+
+Link Components is used to trigger new routes. 
+
+
+
+
+/ ile user web sitesine geldiginde ilk görecegi sayfa
+
+
+
+Dynamic Route:
+Mesela kullanici kendi  bilgilerini girerek verilere ulasmak istiyor.
+Burada her bir kullanici icin binlerce html sayfasi olusturmak imkansiz
+Bu nedenle kullanicidan id alarak bunu linke ekliyoruz. ona göre yönlendirme yapiliyor. bu islemler useParams ile olur.
+
+
+
+Router Hooks:
+useNavigate
+useParams
+useLocation
+
+bu hooklar react in 16.8 versiyonu ile cikmistir.
+daha önce hook yapisi olmadigi icin yoktu
+
+Bu hooklar yardimi ile, you can access the history, location, or parameters in an wasy and elagant way
+
+
+
+*useNavigate:  html de, bir butona a tagi koyarak tiklandiginda baska bir yere yönlendirme yapiyorduk. react da ise buna gerek yok. sadece useNavigate ile yapiyoruz
+Bu hook gives us access to the history instance without pulling it from props
+Bir degiskene atanarak kullanilir. useState gibi (react hook yapilarinin mantigi budur
+
+
+
+
+
+***useParams:  This Hook helps us get the parameter passed on the url without using the props object
+url in sonuna eklenen id gibi eklentilere Parameter denir.
+
+/id  /userName gibi eklentiler
+
+
+
+
+
+useLocation: url in tamamina ihtiyac duyarsak bunu kullaniyoruz
+
+
+
+
+
+
+
+
+
+
+
+
