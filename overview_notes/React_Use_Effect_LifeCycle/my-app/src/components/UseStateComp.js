@@ -5,30 +5,59 @@ import { useState } from 'react'
 //* Only call Hooks at the top level
 //* Call Hooks from React function components.
 //* Call Hooks from custom Hooks.
-const UseStateComp = () => {
-  const [count, setCount] = useState(0)
-  const [age, setAge] = useState(4)
-  const [user, setUser] = useState({ name: 'Felix', age: '25', email: 'felix@gmail.com' })
+//  Herhangi bir func icinden hooklar cagrilamaz sadece component icinde
 
-  // const increase = () => setCount(count + 1)
-  const increase = () => setCount((count) => count + 1)
-  const increaseAge = () => setAge(age + 1)
-  const updateUser = () => setUser({ ...user, name: 'Munir' })
-  console.log(user)
+// class component da 3 asamada yaptigimiz islemleri useEffect de tek seferde yapacagiz
+// Hooks:  class component yazmadan react özelliklerini kullanma imkani verirler
+// hooh lar bizim react state lerine ve lifecycle larina kanca atmamiza imkan veren func lardir. hook lar sadece func component larda calisir
+// useState ve useEffect birer hook dur.
+// hook lar import edilerek kullanilir
+
+
+const UseStateComp = () => {
+
+  const [count, setCount] = useState(0);
+
+  const [user, setUser] = useState({
+    name : "felix",
+    email : "abcdefg@gmail.com",
+    tel : "0123456",
+    age : "33"
+  });
+
+  const handlerIncrease = () => {
+    console.log(count);
+    setCount((count) => count + 1)
+      // setCount un farkli bir kullanimi. Bu kulanimda property olarak count un prevState degerini alir. bu degeri istersek baska yerde kulanabiliriz.
+  }
+
+      // spread ile eski degerleri alma
+  const handleUser = () => setUser({...user, name : "tarik", age : "55"});
+  // burada önce name ve age sonra ...user yazarsak olmaz. degerler degismez
 
   return (
     <div className="function">
       <h2>Functional Component</h2>
       <p>Count: {count} </p>
-      <button onClick={increase}>Increase Count</button>
-      <p>Age: {age} </p>
-      <button onClick={increaseAge}>Increase Age</button>
-      <p>Name: {user.name} </p>
-      <p>Age: {user.age} </p>
-      <p>Email: {user.email} </p>
-      <button onClick={updateUser}>Update User</button>
+      <button onClick={handlerIncrease}>Increase</button>
+
+        {/* user */}
+      {/* <p>{user}</p> */}
+        {/* state object oldugunda bu sekilde kullanim olmaz asagidaki gibi olmali*/}
+
+        <p>{user.name}</p>
+        <p>{user.email}</p>
+        <p>{user.tel}</p>
+        <p>{user.age}</p>
+      <button onClick={handleUser} >User Button</button>
+      
     </div>
   )
 }
 
-export default UseStateComp
+export default UseStateComp;
+
+// best practice: button a eklenen onclick icin eventHandler i retrun kisminin yukarisinda tanimlariz. eger direkt onclick icinde tanimlarsak hizi yavaslatir
+
+// class yapilarda, state degistiginde sadece render kismi calisirdi. func yapilarda ise render component in tamamidir. yani state degistiginde komple component render edilir.
+

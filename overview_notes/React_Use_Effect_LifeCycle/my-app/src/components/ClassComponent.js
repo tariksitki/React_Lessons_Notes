@@ -45,6 +45,14 @@ class ClassComponent extends React.Component {
   }
 
 
+
+  componentWillUnmount = () => {
+    alert("Component Will Unmount Bye Bye");
+  }
+    // componentwillunmount ölmeden önce calistigi icin, componentimiz ölmeden önce alert calisir.
+    // component öldügünde sadece bu method calisir. render ve digeri calismaz
+
+
   render () {
     // console.log(this.state);
 

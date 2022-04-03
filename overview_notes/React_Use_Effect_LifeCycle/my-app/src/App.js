@@ -5,16 +5,20 @@ import Users from './components/Users'
 import UseStateComp from './components/UseStateComp'
 
 function App() {
-  const [isVisible, setIsVisible] = useState(true)
+    // conditional rendering:
+    const [isVisible, setIsVisible] = useState(true);
+  
   return (
     <div className="App">
-      {/* <h2>LifeCycles</h2> */}
-      {/* <button onClick={() => setIsVisible(!isVisible)}>Toggle Comp</button> */}
-      {/* {isVisible && <ClassComponent />} */}
+      {/* <button onClick={() => setIsVisible(!isVisible)}>IsVisible</button>
+      {isVisible && <ClassComponent />} */}
+
       {/* <UseStateComp /> */}
-      {/* {isVisible && <UseEffectComp />} */}
-      {/* <Users /> */}
-      <ClassComponent />
+
+      {/* <button onClick={() => setIsVisible(!isVisible)}>IsVisible</button>
+      {isVisible && <UseEffectComp />} */}
+
+      <Users />
     </div>
   )
 }
