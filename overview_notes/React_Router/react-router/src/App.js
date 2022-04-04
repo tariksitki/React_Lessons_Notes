@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
+import Details from "./pages/Details";
   // import esnasinda {} icine almazsak calismaz
 
 
@@ -18,12 +19,16 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
           <Navbar />
-          <Routes>
-              <Route path="/" element = {<Home />} />
-              <Route path="/about" element = {<About />} />
-              <Route path="/products" element = {<Products />} />
-              <Route path="*" element = {<NotFound />} />
-          </Routes>
+              <div className="main">
+                  <Routes>
+                    <Route path="/" element = {<Home />} />
+                    <Route path="/about" element = {<About />} />
+                    <Route path="/products" element = {<Products />} />
+                    <Route path="/details/:id" element = {<Details />} />
+                      {/* : demek details dan sonra ne gelirse gelsin Details a git demek  */}
+                    <Route path="*" element = {<NotFound />} />
+                  </Routes>
+              </div>
           <Footer />
       </BrowserRouter>
     </div>
@@ -45,5 +50,18 @@ export default App
 // Home u en üste koymak zorunda degiliz
 
 // mesela home yapisina özel bir navbar istersek bunu home sayfasi icinde dizayn edebiliriz
+
+// class verebilmek icin routesleri div icine aldik. eger sadece route lari alip routes leri div disinda birakirsak hata aliriz
+
+// islemleri link ile yapabiliyorsak, bu durumda navlink ile yapmayalim
+
+// Link tagi ile yönlendirme yapariz. yani link icindeki elemana tiklandiginda bizi nereye yönlendirecegi belirlenir. Route ise linkin yönlendirdigi adresteki istekleri karsilar ve bu istekleri gitmesi gereken yere yönlendirir
+
+// linkleri a tagi ile yaptigimizda her seferinde sayfa yenilendiginden sitemiz yavaslar
+
+// : ile olan isleme dynamic routing denir. aramak icin react router dom dynamic routing
+
+
+
 
 // https://github.com/edwardBenedict/router-shop
