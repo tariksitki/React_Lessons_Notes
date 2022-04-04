@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
+import Checkout from "./pages/Checkout";
   // import esnasinda {} icine almazsak calismaz
 
 
@@ -26,6 +27,7 @@ const App = () => {
                     <Route path="/products" element = {<Products />} />
                     <Route path="/details/:id" element = {<Details />} />
                       {/* : demek details dan sonra ne gelirse gelsin Details a git demek  */}
+                      <Route path="/checkout" element = {<Checkout />} />
                     <Route path="*" element = {<NotFound />} />
                   </Routes>
               </div>
