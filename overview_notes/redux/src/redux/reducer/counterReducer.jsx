@@ -9,7 +9,6 @@
 
 
 
-
 // redux i state management icin, yani state leri tutmak ve manipule etmek icin kullaniyoruz. o nedenle burada initial bir state tanimaldik ve bunu manipule edecegiz.
 
 const initial_state = {
