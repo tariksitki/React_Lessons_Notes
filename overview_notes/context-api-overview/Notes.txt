@@ -1,0 +1,65 @@
+Daha önceden redux ile yaptigimiz state management islemlerini artik react context de yapabiliyoruz
+
+component sayilarimiz arttiginda bunlarin yönetimi  zorlasiyor. bu nedenle 16.8 versiyonu ile ve hook lar ile gelen built in context yapisini kullaniyoruz.
+
+React context api, react app in her tarafinda kullanilan degiskenleri global olarak tanimlamanin temel bir yoludur.
+
+"Prop Drilling" e yada parent dan child a props göndermenin bir alternatifdir 
+
+Genellikle, state management islemlerinde redux kullanmanin basit bir yolu olarak düsünülür.
+
+Props lari göndermek yerine tek bir yerde tutup her yerden erisebiliyoruz.
+
+Eeger sadece bir asagidaki child a gönderim yapacaksak yine props ile gönderim yapiyoruz. Cünkü bu durumlarda kullanimda, context bizi component yapisindan uzaklastirmis oluyor. 
+
+Provider: The component that provides the value
+Consumer: A component that is consuming the value
+
+sadece provider ile sarmalladigimiz component ler icinde kullanabiliriz
+
+Context, hooklar ile gelen bir özellik oldugu  icin func component ile kullanamk daha mantiklidir.
+
+Class ve func larda providing islemi aynidir. Ama consuming islemi biraz farkldiir.
+
+Class component larda, context e access genellikle,  static ContextType ile dir.
+
+Func component larda static ContextType  in karsiligi,  useContext dir.
+
+
+
+Updating Context de güncellemedir.
+
+
+Is basvurularinda custom hooks u kullanmaliyiz.
+
+Class component larda da kullanilabilir ama func larda daha mantikli.
+
+
+Built in geldigi icin herhangi bir paket yüklemeye gerek yok.
+Redux da context ile ayni isi yapar. ama redux icin paket yüklememiz gerekir. Context sadece react ile kullanilir. redux ise vue js ve angular ile de kullanilabilir. Redux cok daha köklüdür.
+
+
+
+
+
+Props kullandigimizda, sadece props degistiginde sayfamiz render olur. ama cok props umuz olmadiginda context kullanirsak, bu durumda diger props lar degistiginde de gereksiz sekilde sayfamiz render olabilir. Bu nedenle cok yogunluk yok ise kullanilmaz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

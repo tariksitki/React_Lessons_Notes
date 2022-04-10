@@ -11,10 +11,27 @@ const initialProducts = [
 
 const WithPropsApp = () => {
     const [products, setProducts] = useState(initialProducts)
+
+    const increasePrice = (event) => {
+        //Önemli: onclick tanimlanan yerden event gönderilmese bile burada event yakalanabiliyor. Buttonlarin oldugu yerde id tanimlamasi yaptik. simdi burada kullnacagiz.
+        const newProducts = [...products]
+        // Önemli: Burada 3 nokta kullanmamizin sebebi: Eger ... kullanmasaydik her seferinde render olmayacakti.
+        newProducts[event.target.id].price += 1;
+        setProducts(newProducts);
+        
+        
+    }
+
+    const decreasePrice = (event) => {
+        const newProducts = [...products];
+        newProducts[event.target.id].price -= 1;
+        setProducts(newProducts);
+    }
+
   return (
     <div>
         <h2>WithPropsApp</h2>
-        <ProductList  products = {products} />
+        <ProductList  products = {products} increasePrice = {increasePrice} decreasePrice = {decreasePrice} />
     </div>
   )
 }
