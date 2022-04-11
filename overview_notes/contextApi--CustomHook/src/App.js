@@ -5,6 +5,7 @@ import WithContextApp from "./withContext/withContextApp";
 import MyApp from './MyApp';
 import useFetch from "./hooks/useFetch";
 import Iframe from './Iframe';
+import WithContextApp2 from './withContextSelf/WithContextApp2';
 
 // ProductContext i degiskenleri kullanacagimiz yerde cagiririz. Burada ise Provoder cagrilir
 /// props lari normal App({data, loading, error}) seklinde cekmiyoruz
@@ -13,9 +14,6 @@ import Iframe from './Iframe';
 
 function App() {
   const {data, loading, error} = useFetch("https://jsonplaceholder.typicode.com/todos");
-  console.log(data);
-  console.log(loading);
-  console.log(error);
 
   return (
     <div className="App">
@@ -27,7 +25,13 @@ function App() {
           <div>test</div>
       </MyApp> */}
 
-        { 
+      <WithContextApp2 />
+        
+
+
+
+        {/* Custom Hook  */}
+        {/* { 
         
         loading && <Iframe />
         }
@@ -38,7 +42,7 @@ function App() {
         ))
       }
 
-        {error && <h1>{error}</h1> }
+        {error && <h1>{error}</h1> } */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import {ProductContext} from "./ProductContext";
 
 const Product = ({product}) => {
@@ -16,4 +16,4 @@ const Product = ({product}) => {
   )
 }
 
-export default Product
+export default Product;

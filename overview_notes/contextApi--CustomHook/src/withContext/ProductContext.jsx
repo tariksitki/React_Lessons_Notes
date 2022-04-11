@@ -16,7 +16,7 @@ export const ProductProvider = (props) => {
     const [products, setProducts] = useState(initialProducts);
 
     const increasePrice = (id) => {
-        //Önemli: onclick tanimlanan yerden event gönderilmese bile burada event yakalanabiliyor. Buttonlarin oldugu yerde id tanimlamasi yaptik. simdi burada kullnacagiz.
+        //Önemli: onclick tanimlanan yerden event gönderilmese bile burada event yakalanabiliyor. Buttonlarin oldugu yerde id tanimlamasi yaptik. simdi burada kullanacagiz.
         const newProducts = [...products]
         // Önemli: Burada 3 nokta kullanmamizin sebebi: Eger ... kullanmasaydik her seferinde render olmayacakti.
         newProducts[id].price += 1;
@@ -30,6 +30,8 @@ export const ProductProvider = (props) => {
     }
     return <ProductContext.Provider value={{products, increasePrice, decreasePrice, setProducts}}>
         {props.children}
+        {/* Burada iki tane {{}} göndermek diger tarafta alirken önemli  */}
+        {/* Burada kullandigimiz propsu func icine parametre aldik. peki nereden geldi bu props? withContextApp de Provider i cagirirken icine yazdigimiz ProductList dir props umuz */}
         {/* Bu ne demek: benim sarmalladigim herseyi benim children im olarak render et demek */}
         {/* Burada children kullanmak zorundayiz. Bu sekilde alt componentlere tek tek props göndermek yerine hepsini tek seferde sarmallamis ve hepsine ayni anda göndermis oluyoruz.  */}
     </ProductContext.Provider>
@@ -46,7 +48,7 @@ export const ProductProvider = (props) => {
 // Önemli: Kullanacagimiz tüm componentler, Provider in alt component i olmak zorunda
 // yani bunun children i olmak zorunda
 
-// children ve value yu anlamak icin myApp diye bur component olusturuyoruz simdi
+// children ve value yu anlamak icin myApp diye bir component olusturuyoruz simdi
 
 // not: Birden cok context olusturulabilir. her context e kendi ile ilgili olan state ve degiskenler konulur. Burada ProductContext dememizin sebebi de budur. 
 // eger tek bir context olursa ve hepsi bunun icin de olursa, bu durumda her degisiklikte bu komple calisir.

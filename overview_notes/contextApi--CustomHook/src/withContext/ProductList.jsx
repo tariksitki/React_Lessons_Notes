@@ -11,7 +11,7 @@ const ProductList = () => {
         // Biz context tanimlamada verileri value ile object olarak gönderdigimiz icin burada object olarak yakalamak zorunda kaldik. array gönderseydik context bize Array getirecekti
   return (
         <div>
-            {products.map((product) => (
+            {products?.map((product) => (
                 <Product key={product.id} product = {product} />
             ) )}
         </div>
