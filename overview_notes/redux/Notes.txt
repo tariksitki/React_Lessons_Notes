@@ -1,0 +1,103 @@
+redux state yönetimidir
+
+projemizde olusturdugumuz statelere her yerden ulasabilmek ve manipule etmek icin kullaniyoruz
+
+redux a, bizim statelerimizi ve func larimizi barindiran bir state container diyebiliriz
+
+js e ait tüm kütüphane ve framework ler tarafindan kullanilabilir.
+
+
+
+why react?
+
+1: it is official redux ui Bindings for react
+2: it encourages good reat architecture
+3: it implemenets performance optimizations
+4: community support
+
+
+
+yarn add redux react-redux
+(pure js kullaniyorsak sadece redux indirsek yeterli)
+
+
+esasen redux pure js icin olustuurlmustur. bu nedenle react-redux i indirmez isek herhangi bit tepki almayiz
+
+
+redux context e göre performans olarak daha iyi.
+
+context de bir state degistiginde, context ici tamamen render olur
+
+
+
+
+React 3 temel prensip icinde tanimlanabilir:
+
+1: Single source of truth:
+
+bizim app imizin global state i , bir single store seklinde bir object tree de saklanir.
+
+2: state is read only:
+
+bir state i degistirmek istedigimiz zaman o state i yeniden tanimliyorz bu sekilde yenileme yapabiliyoruz
+
+3: Changes are made with pure functions:
+
+To specify how the state tree is transformed by actions, you write pure reducers.
+(biz ise bunu react redux ile yapiyoruz)
+
+
+
+
+
+siralama:
+1: Dispatch (current state ,  action)
+2: reducer
+3: new state (store)
+
+store tüm state lerimizin tutuldugu yer. burayi degistirmek icin dispatc ile action göndriyoruz ve reducer ile degistiriyoruz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
