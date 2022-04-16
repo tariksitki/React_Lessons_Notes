@@ -1,8 +1,12 @@
 import "./Counter.css";
+import { useSelector, useDispatch } from "react-redux";
 
+// reducer da tanimladigimiz state leri cagirabilmek icin useSelector kullaniriz.
+// yani burada artik consuming islemine basladik
 
 const Counter = () => {
-  
+  const {counter} = useSelector((state) => state.counterReducer);
+  console.log(counter);
 
   return (
     <div className="app">
@@ -28,3 +32,6 @@ const Counter = () => {
 };
 
 export default Counter;
+
+// redux kullanma maksadi karmasik projeleri basitlestirmek
+// bu nedenle redux diye bir klasör olusturulur
