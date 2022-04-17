@@ -7,20 +7,24 @@
 // index de ki tüm component lar provider ile sarmallanir. bu provider a store olarak combined store un calistirilmis hali verilir.
 // 4: consume islemine gecilir. bunun icin counter da useDispatch ve useSelector cagrilir.
 
+// eger reducer olmazsa store umuzun hicbir anlami olmaz. cünkü veri alma ve manipule islemleri tamamen reducer üzerinden yürür. store kasamiz reducer ise kasiyer. para alma ekleme degistirme yapar. Reducer da bir func dir
 
 // redux i state management icin, yani state leri tutmak ve manipule etmek icin kullaniyoruz. o nedenle burada initial bir state tanimaldik ve bunu manipule edecegiz.
+
+import {increase_counter, decrease_counter, reset} from "../types/CounterTypes"
 
 const initial_state = {
     counter : 0
 };
 
+
 const counterReducer = (state = initial_state, action) => {
     switch (action.type) {
-        case "increase_counter" :
+        case increase_counter :
             return {...state, counter : state.counter + 1}
-        case "decrease_counter" :
+        case decrease_counter :
             return {...state, counter : state.counter - 1}
-        case "reset":
+        case reset:
             return {...state, counter : 0};
             // burada initial state de diyebilirdik ama kullanici sadece counter i sifirlamak isterse hata cikmasin diye böyle yazdik
         default:
