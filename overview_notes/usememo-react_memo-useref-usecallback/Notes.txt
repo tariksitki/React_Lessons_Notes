@@ -1,0 +1,12 @@
+** Bunlar direkt react in kendisine ait olan hooklardir.
+** mesela useNavigate reactRoter a aittir.
+
+
+***** UseRef:
+
+iki farkli kullanimi vardir:
+
+1: dom elementlerine ulsmak icin (js deki getelementbyid gibi)
+
+
+2: bir js object i olusturmak icin. bunun diger object lerden farki referansi degismeyen hafizadaki yeri degismeyen bir object olur. bilgiler degismedigi icin usestate gibi render edilmez. Bu nednele kullaniciya anlik olarak yansitmayacagimiz bilgileri bu sekilde tutmamiz gerekir.

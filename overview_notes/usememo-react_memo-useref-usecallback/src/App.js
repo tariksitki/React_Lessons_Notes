@@ -1,10 +1,15 @@
 
 import './App.css';
+import ReactMemo from './reactMemo/ReactMemo';
+import UseRefComponent from './useRef/UseRef';
+import UseRefSecondUsage from './useRef/UseRefSecondUsage';
 
 function App() {
   return (
     <div className="App">
-      <p>hello</p>
+      {/* <UseRefComponent /> */}
+      {/* <UseRefSecondUsage /> */}
+      <ReactMemo />
     </div>
   );
 }
