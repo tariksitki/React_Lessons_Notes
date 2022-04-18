@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+  /// useState de 3 tane state imiz var. ve her biri degistiginde sayfa 3 kez render edilir
+
 const UseStateExample = () => {
   const [dog, setDog] = useState("");
   const [error, setError] = useState("");
