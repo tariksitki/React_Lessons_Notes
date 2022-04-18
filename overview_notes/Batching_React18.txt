@@ -1,0 +1,3 @@
+react 17 ile, normal state islemlerinde batching vardi. yani alt alta iki ve daha fazla state i set etme islmei varsa bunlar icin component sadece 1 kez render ediliyordu. ama bu durum asny yapilarda yani useEffect icinde kullandigimiz fetch gibi yapilarda yoktu. bunlarda her bir state i set isleminde render ediliyordu. react 18 ile birlikte async yapilara da batch islemi gelmis oldu.
+
+ama async icindeki ile disindaki set ler birlestirilmez. iceridekiler kendi icinde disaridakiler kendi icinde birlestirilir.
