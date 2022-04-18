@@ -16,6 +16,8 @@
 
 // react memo da component hafizaya alindigi icin, eger gereksiz yere kullanirsak hafizaya bos yere yük binmis olur. 
 
+/// hafizadaki veriler client tarafindaki memory de tutulur
+
 import { useState } from 'react';
 import Header from './Header';
 import fs from "../assets/fs.png";

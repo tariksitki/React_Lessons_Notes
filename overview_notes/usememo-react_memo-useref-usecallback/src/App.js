@@ -1,6 +1,7 @@
 
 import './App.css';
 import ReactMemo from './reactMemo/ReactMemo';
+import UseMemoCallback from './useMemoCallback/UseMemoCallback';
 import UseRefComponent from './useRef/UseRef';
 import UseRefSecondUsage from './useRef/UseRefSecondUsage';
 
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       {/* <UseRefComponent /> */}
       {/* <UseRefSecondUsage /> */}
-      <ReactMemo />
+      {/* <ReactMemo /> */}
+      <UseMemoCallback />
     </div>
   );
 }
