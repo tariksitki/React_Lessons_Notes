@@ -7,6 +7,11 @@ import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
 import axios from "axios";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { clearLoading, setLoading } from "../redux/actions/AppActions";
+import { setNewsList} from "../redux/actions/NewsActions";
+
+/// useSelector cikmadan önce connect kullaniliyordu.
 
 const News = () => {
   const url =
@@ -21,11 +26,23 @@ const News = () => {
   // async func lari useEffect icinde tanimlamamizi istedi program.
   // ve hemen cagirdik
 
+  // programcilikta, disaridan birsey aliniyorsa bunun gelmeme ihtimali vardir.
+  // bu nedenle try catch
+
+  const dispatch = useDispatch();
+  const {newsList} = useSelector(state => state.news)
+
   useEffect(() => {
       const getNews = async () => {
-        const {data} = await axios.get(url);
-
-        console.log(data.articles);
+        try {
+          dispatch(setLoading());
+          const {data} = await axios.get(url);
+          dispatch(setNewsList(data.articles));
+        } catch (error) {
+          console.log(error)
+        } finally {
+          dispatch(clearLoading());
+        }
     }
 
       getNews();

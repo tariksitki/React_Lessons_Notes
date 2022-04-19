@@ -3,8 +3,11 @@
 
 import { createStore } from "redux";
 import rootReducer from "../reducers";
+import { composeWithDevTools } from '@redux-devtools/extension';
+// bunun kullanimi npmjs.com da yazar
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
+// eger yanina () yapmazsak calismaz
 
 export default store;
 

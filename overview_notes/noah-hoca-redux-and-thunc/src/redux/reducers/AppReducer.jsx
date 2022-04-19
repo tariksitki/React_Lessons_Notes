@@ -18,5 +18,5 @@ const AppReducer = (state = initialState, {type, payload} ) => {
             return state;
     }
 };
-
+// default da return state olmak zorunda. cünkü 2 ihtimal disinda birsey gelirse hata verir
 export default AppReducer;

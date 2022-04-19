@@ -1,0 +1,28 @@
+Redux is a predictable state container for js apps.
+yani öngörülebilir state leri tasiyan bir container dir.
+
+Redux ve react redux vardir.
+
+Redux, pure js icin olusturulmustur.
+setTimeOut gibi yada random componentler de her zaman ayni girdi ile ayni cikti alinamaz. Redux in amaci, her zaman ayni girdi ile ayni ciktinin alindigi componentleri state leri yönetmektir.
+
+Cok büyük sayida state varsa yönetmek context e göre daha kolaydir.
+
+Redux da local stateler tutulmaz global state ler tutulur. 
+Tek bir yerde kullanilacak state local de tutulursa performans daha iyi.
+
+Ctrl C ile program stoplanir 
+
+
+
+Redux da state, sadece reducer tarafindan degistirilebilir. bu bilincli olarak tasarlanmistir.
+
+User tarafindan girilen eylemler, dispatcher da action a dönüsür.
+
+
+		Redux Dev Tools
+chrome dan extension i indirdik.
+sonra npmjs.com a gidip bu extension in ismini yazdik ve kurulumunda yapilmasi gerekenleri yaptik.
+yarn add @redux-devtools/extension
+
+
