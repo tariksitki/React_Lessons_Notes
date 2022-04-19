@@ -6,6 +6,10 @@ import News from "../pages/News";
 
 import PrivateRouter from "./PrivateRouter";
 
+// burada private router su sekilde calisir:
+// "/" gelirse private router i return et. private router ise bir func dir. 
+// eger user login oldu ise outlet return eder. outlet dedigimiz sey child element döndürür.burada child element ise news dir. user login olmadi ise login sayfasina private router ile göndeririz.
+
 const AppRouter = () => {
   return (
     <Router>
@@ -22,3 +26,4 @@ const AppRouter = () => {
   );
 };
 export default AppRouter;
+
