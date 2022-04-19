@@ -1,7 +1,7 @@
 
 // rxreducer kisa yol
 
-import { set_loading, clear_loading } from "../types/appTypes";
+import { set_loading, clear_loading } from "../types/AppTypes";
 
 const initialState = {
     loading : false

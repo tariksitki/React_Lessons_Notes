@@ -5,8 +5,32 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
+import axios from "axios";
+import { useEffect } from "react";
 
 const News = () => {
+  const url =
+  "https://newsapi.org/v2/everything?" +
+  "q=Apple&" +
+  "from=2022-04-18&" +
+  "sortBy=popularity&" +
+  "apiKey=12c34b6d80234673987cc7094eaa6dbf";
+
+  // simdi sayfa yüklendikten sonra getNews func cagirmak istiyoruz.
+  
+  // async func lari useEffect icinde tanimlamamizi istedi program.
+  // ve hemen cagirdik
+
+  useEffect(() => {
+      const getNews = async () => {
+        const {data} = await axios.get(url);
+
+        console.log(data.articles);
+    }
+
+      getNews();
+  }, []);
+
   return (
     <Box
       xs={{ d: "flex" }}

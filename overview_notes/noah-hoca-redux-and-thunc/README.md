@@ -30,7 +30,7 @@ npm install veya yarn install
   "q=Apple&" +
   "from=2022-04-18&" +
   "sortBy=popularity&" +
-  "apiKey=1a1a999e0d7240a6bd2dead87bcca78e";
+  "apiKey=12c34b6d80234673987cc7094eaa6dbf";
 
 ## `Kullanilacak Araclar`
 
