@@ -9,20 +9,20 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearLoading, setLoading } from "../redux/actions/AppActions";
-import { setNewsList} from "../redux/actions/NewsActions";
+import { setNewsList } from "../redux/actions/NewsActions";
 
 /// useSelector cikmadan önce connect kullaniliyordu.
 
 const News = () => {
   const url =
-  "https://newsapi.org/v2/everything?" +
-  "q=Apple&" +
-  "from=2022-04-18&" +
-  "sortBy=popularity&" +
-  "apiKey=12c34b6d80234673987cc7094eaa6dbf";
+    "https://newsapi.org/v2/everything?" +
+    "q=Apple&" +
+    "from=2022-04-18&" +
+    "sortBy=popularity&" +
+    "apiKey=12c34b6d80234673987cc7094eaa6dbf";
 
   // simdi sayfa yüklendikten sonra getNews func cagirmak istiyoruz.
-  
+
   // async func lari useEffect icinde tanimlamamizi istedi program.
   // ve hemen cagirdik
 
@@ -30,24 +30,27 @@ const News = () => {
   // bu nedenle try catch
 
   const dispatch = useDispatch();
-  const {newsList} = useSelector(state => state.news)
+ 
+  // useSelector un state e direkt erisimi var. Burada useSelector icine bir callback func aliyor. bu callback func da state i aliyor. state dedigimiz burada rootReducer oluyor yani combine edilmis reducer. state.news;  NewsReducer in rootReducer icindeki kod ismi.
 
   useEffect(() => {
-      const getNews = async () => {
-        try {
-          dispatch(setLoading());
-          const {data} = await axios.get(url);
-          dispatch(setNewsList(data.articles));
-        } catch (error) {
-          console.log(error)
-        } finally {
-          dispatch(clearLoading());
-        }
-    }
+    const getNews = async () => {
+      try {
+        dispatch(setLoading());
+        const { data } = await axios.get(url);
+        dispatch(setNewsList(data.articles));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        dispatch(clearLoading());
+      }
+    };
 
-      getNews();
+    getNews();
   }, []);
 
+  const { newsList } = useSelector((state) => state.news);
+  
   return (
     <Box
       xs={{ d: "flex" }}
@@ -56,7 +59,7 @@ const News = () => {
       justifyContent="space-evenly"
       flexWrap="wrap"
     >
-      {[1, 2, 3, 4].map((item, index) => (
+      {newsList?.map((item, index) => (
         <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
           <CardMedia
             component="img"

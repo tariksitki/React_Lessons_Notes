@@ -8,9 +8,9 @@ const initialState = {
 const NewsReducer = (state = initialState, {type, payload} ) => {
     switch (type) {
         case set_news_list:
-            return {...state, newList : payload}
+            return {...state, newsList : payload}
         case clear_news_list:
-            return initialState.newList;   
+            return initialState.newsList;   
         default:
             return state;
     }
