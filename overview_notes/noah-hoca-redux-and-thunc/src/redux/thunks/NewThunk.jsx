@@ -1,6 +1,13 @@
 
+// Note: Thunk da redux dev tool gibi bir enhancer dir. bu nedenle kullanabilmek icin store dosyasinda compose edilmesi gerekir.
+
+// piyasada bulunan thunk ve saga gibi middleware ler aslinda sadece bizim async islemleri redux ile kullanmamizi saglar. yani promise yapilarini
 
 /// dispatch bir hook dur. o nedenle ya bir component icinde yada baska bir hook icinde kullanilir. bu dosya ise bir component degildir sadece bir js dosyasidir. o nedenle baska bir sekilde kullanacagiz. 
+
+import axios from "axios";
+import { setNewsList } from "../actions/NewsActions";
+import { setLoading, clearLoading } from "../actions/AppActions";
 
 const url =
   "https://newsapi.org/v2/everything?" +
@@ -27,7 +34,7 @@ const url =
         // Bu kullanimda getNews arrow func i diger bir async func return eder. 
         // bu sekilde kullanmak icin, news.js den bu func i return ederken yaninda () kullanmamiz gerekir.
 
-  const getNews = () => {
+   const getNews = () => {
       return (
         async (dispatch) => {
             try {
@@ -41,4 +48,6 @@ const url =
             }
           }
       )
-  }
+  };
+
+  export default getNews;

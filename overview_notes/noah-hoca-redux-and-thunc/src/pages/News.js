@@ -11,17 +11,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearLoading, setLoading } from "../redux/actions/AppActions";
 import { setNewsList } from "../redux/actions/NewsActions";
 import loadingGif from "../assets/loading.gif"
+import getNews from "../redux/thunks/NewThunk";
 
 /// useSelector cikmadan önce connect kullaniliyordu.
 
 const News = () => {
     // bu component da sadece business code larimiz olsun bu tarz logic ler kalabalik etmesin diye url imizi ve getNews func imizi thunk icine tasidik. 
-  const url =
-    "https://newsapi.org/v2/everything?" +
-    "q=Apple&" +
-    "from=2022-04-18&" +
-    "sortBy=popularity&" +
-    "apiKey=12c34b6d80234673987cc7094eaa6dbf";
+  // const url =
+  //   "https://newsapi.org/v2/everything?" +
+  //   "q=Apple&" +
+  //   "from=2022-04-18&" +
+  //   "sortBy=popularity&" +
+  //   "apiKey=12c34b6d80234673987cc7094eaa6dbf";
 
   // simdi sayfa yüklendikten sonra getNews func cagirmak istiyoruz.
   // async func lari useEffect icinde tanimlamamizi istedi program.
@@ -52,18 +53,18 @@ const News = () => {
     // buradan import ederken dispatch, getNews i sarmalamasi lazim tam tersi degil.
 
   useEffect(() => {
-    const getNews = async () => {
-      try {
-        dispatch(setLoading());
-        const { data } = await axios.get(url);
-        dispatch(setNewsList(data.articles));
-      } catch (error) {
-        console.log(error);
-      } finally {
-        dispatch(clearLoading());
-      }
-    };
-    getNews();
+    // const getNews = async () => {
+    //   try {
+    //     dispatch(setLoading());
+    //     const { data } = await axios.get(url);
+    //     dispatch(setNewsList(data.articles));
+    //   } catch (error) {
+    //     console.log(error);
+    //   } finally {
+    //     dispatch(clearLoading());
+    //   }
+    // };
+    dispatch(getNews());
   }, []);
 
   // && ve || ile yapilan yapilarin genel ismi conditional rendering ama bu islemlere short hand methodu deniyor.
