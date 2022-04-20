@@ -11,11 +11,14 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCurrentUser } from "../redux/actions/AuthActions";
 
 const MyNavbar = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const currentUser = true;
+  const {currentUser} = useSelector(state => state.auth);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -26,10 +29,15 @@ const MyNavbar = () => {
     setAnchorEl(null);
     navigate("/");
   };
-
+    // logout islemi burada gerceklesiyor. bunu kendimiz de yapabilirdik. söyle:
+    // yani google in kodunu kullanmamis olsak da biz user i silmek icin action tanimlamistik
+    // peki bu func nasil calisiyor. navbar icinde bulunan logout buttonuna tikladigimizda handleLogout func calisir ve bu da google in logout func inini calistirir.
+    // aslinda logou func ile biz google da logut yaptiriyoruz. yani bu islemden sonra component larimiz render edilmeden önce bu bilgi app.js de google dan alinacak ve bizim state imiz daha ilk basta degisecekti. ama biz nasil oldugunu görelim diye burada dispatch i de kullandik.
+    
   const handleLogout = () => {
     setAnchorEl(null);
     logout();
+    dispatch(clearCurrentUser)
   };
 
   const handleRegister = () => {
